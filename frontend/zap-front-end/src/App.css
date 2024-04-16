@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: sans-serif;
-  overflow-x: hidden;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .ht-100vh {

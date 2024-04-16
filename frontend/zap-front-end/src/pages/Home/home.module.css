@@ -3,17 +3,33 @@
     padding: 7px;
     border-radius: 2px;
     border: solid 1px #ccc;
-    margin: 5px auto;
+    margin: 5px auto 20px auto;
     width: 100%;
+    outline: none;
+}
+
+.form input:focus {
+    border: solid 1px rgb(92, 66, 237);
 }
 
 .form {
-    border: solid 1px #ccc;
     padding: 20px;
     max-width: 500px;
+    border: solid 1px #eee;
+    margin: 3em auto;
+    box-shadow: 1px 5px 4px #ccc;
+}
+
+.form button {
+    width: 100%;
+    padding: 7px;
 }
 
 .header {
-    font-size: 40px;
-    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+  
+}
+
+.url_example {
+    margin: 2em auto;
 }

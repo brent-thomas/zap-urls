@@ -11,7 +11,7 @@ const client = new DynamoDBClient({
   }
 });
 
-const putItem = async (alias, originalURL) => {
+const putItem = async (alias, longURL) => {
   const urlString = generateRandomString() 
   const zapURL = `https://zapurls.com/${alias}/${urlString}`
   const id = uuidv4(); // Generate a new UUID
@@ -20,7 +20,7 @@ const putItem = async (alias, originalURL) => {
     Item: {
       id: { S: id }, // Use the UUID as the 'id' attribute
       alias: { S: alias },
-      originalURL: { S: originalURL },
+      longURL: { S: longURL },
       urlString: {S:urlString},
       zapURL: {S:zapURL},
       timestamp: { N: `${Date.now()}` },

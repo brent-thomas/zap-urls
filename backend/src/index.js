@@ -3,7 +3,7 @@ const Joi = require('joi');
 const xss = require('xss');
 const schema = Joi.object({
     alias: Joi.string().alphanum().max(10).required(),
-    originalURL: Joi.string().uri().required()
+    longURL: Joi.string().uri().required()
 });
 const {putItem, getURL} = require('./config/dynamodb-utils')
 const express = require('express');
@@ -24,7 +24,7 @@ app.get('/:alias/:urlString', async (req,res)=>{
   try {
     const data = await getURL(req.params.alias, req.params.urlString)
     if(data){
-      res.redirect(302,data.originalURL.S)
+      res.redirect(302,data.longURL.S)
     } else {
       res.status(400).send('URL not found')
     }
@@ -34,16 +34,17 @@ app.get('/:alias/:urlString', async (req,res)=>{
   }
 })
 
-app.post('/generateURL', async (req,res) =>{
-    let {alias, originalURL} = req.body
+app.post('/generateurl', async (req,res) =>{
+    let {alias, longURL} = req.body
     alias = xss(alias)
-    originalURL = xss(originalURL);
-    const { error } = schema.validate({alias,originalURL});
+    longURL = xss(longURL);
+    const { error } = schema.validate({alias,longURL});
     if (error) {
+        console.log('schema validate error')
         return res.status(400).json({ error: error.details[0].message });
     }
     try {
-      const zapURL = await putItem(alias,originalURL)
+      const zapURL = await putItem(alias,longURL)
       res.json({zapURL});
     }catch(error){
       console.error("Error generating URL: ", error)
