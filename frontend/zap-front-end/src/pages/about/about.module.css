@@ -1,3 +1,12 @@
 .container p {
     margin: 1em auto;
 }
+
+.container {
+    max-width: 700px;
+    margin: auto;
+}
+
+.container h2 {
+    margin-top: 2em;
+}

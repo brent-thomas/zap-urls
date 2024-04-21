@@ -4,11 +4,14 @@ import {isURL} from 'validator';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCopy, faBoltLightning} from '@fortawesome/free-solid-svg-icons'
+import Loader from "../../components/loader/Loader";
+import CopyButton from "../../components/copybutton/CopyButton";
 const Home = () => {
     const [alias, setAlias] = useState('');
     const [errors,seterrors] = useState([])
     const [longURL, setLongURL] = useState('');
     const [zapURL, setzapURL] = useState('')
+    const [loading, setLoading] = useState(false);
     const url = "http://localhost:3000/generateurl"
 
 
@@ -37,29 +40,33 @@ const Home = () => {
     }
  
     const handleSubmit = async (alias,longURL) => {
-        if(validate()){
-        const data = {
-            alias,
-            longURL 
+        setLoading(true)
+        try{
+            if(validate()){
+                const data = {
+                    alias,
+                    longURL 
+                }
+                const response = await fetch(url, {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                })
+                const responseData = await response.json();
+                setzapURL(responseData.zapURL)
+                setLongURL('')
+                setAlias('')
+                }
+        } catch(err) {
+            seterrors(['There appears to be an issue with our server. Please try again in a few moments.'])
+            console.log(err)
         }
-        const response = await fetch(url, {
-            method: 'POST',
-            mode: 'cors',
-            cache: 'no-cache',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })
-        if (!response.ok) throw new Error('Network response was not ok.');
-        const responseData = await response.json();
-        setzapURL(responseData.zapURL)
-        }
-        else {
-            console.log(errors)
-           return null
-        }
-    }
+        setLoading(false)
+    }   
 
    
     return(
@@ -67,13 +74,14 @@ const Home = () => {
             <div>
               
                 <div className={styles.form}>
-                {zapURL ?
+                {loading ? 
+                <Loader/>
+                :
+                zapURL  && !loading ?
                 <div>
                     <Link target="_blank" to={zapURL}>{zapURL}</Link>
                     <div>
-                        <button id={styles.copyLink}>
-                            <FontAwesomeIcon icon={faCopy}/> Copy URL
-                        </button>
+                        <CopyButton url={zapURL}/>
                         <button id={styles.generateNewURL} onClick={()=>{
                             setzapURL('')
                         }}>Generate Another URL</button>
@@ -136,11 +144,29 @@ const Home = () => {
                     </div>
                     <div className={styles.feature}>
                         <h3>No sign in or registration required</h3>
-                        <p>We'll likely add this feature later, but it will always be optional.</p>
+                        <p>We'll likely add this feature later to implement link tracking, but it will always be optional.</p>
                     </div>
                     <div className={styles.feature}>
                         <h3>Free</h3>
                         <p>Free means free. No ads and no features hidden behind paywalls.</p>
+                    </div>
+                    <div className={styles.feature}>
+                        <h3>Transparent Redirection</h3>
+                        <p>
+                            Our shortened URLs are designed to redirect you transparently to the intended destination. There are no intermediate pages filled with ads, no unexpected detours—just a 
+                            straightforward, secure redirection from ZapURLs.com to where you want to go.
+                        </p>
+                    </div>
+                    <div className={styles.feature}>
+                    <h3>Privacy Matters</h3>
+                    <p>
+                        We respect your privacy. ZapURLs.com does not track personal data from
+                        the URLs that are shortened. Our process is transparent—we focus solely
+                        on providing you with a reliable and efficient service.
+                    </p>
+                    </div>
+                    <div className={styles.feature}>
+
                     </div>
                 </div>
 
