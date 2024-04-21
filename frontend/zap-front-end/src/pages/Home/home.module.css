@@ -3,9 +3,25 @@
     padding: 7px;
     border-radius: 2px;
     border: solid 1px #ccc;
-    margin: 5px auto 20px auto;
-    width: 100%;
+    margin: 10px 0px;
     outline: none;
+}
+
+.error {
+    background-color: rgb(250, 217, 217);
+    color: rgb(192, 9, 9);
+    padding: 7px;
+    margin: 10px auto;
+}
+
+.longURL {
+    width: 100%;
+}
+
+.alias {
+    width:40%;
+    margin-right: auto;
+    margin-left: 0;
 }
 
 .form input:focus {
@@ -15,21 +31,61 @@
 .form {
     padding: 20px;
     max-width: 500px;
-    border: solid 1px #eee;
     margin: 3em auto;
-    box-shadow: 1px 5px 4px #ccc;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+    font-size: 17px;
 }
 
 .form button {
-    width: 100%;
-    padding: 7px;
+    padding: 8px;
+    border: none;
+    outline: none;
+    margin-bottom: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+#submit {
+    float: right;
+    background-color: #E0AC1E;
+    color: #000;
+    font-weight: bold;
+    width: 30%;
+    border-radius: 20px;
+}
+
+#submit:hover {
+    background-color: #f6bf27;
 }
 
 .header {
     font-size: 30px;
+    font-weight: 500;
   
 }
 
 .url_example {
-    margin: 2em auto;
+    margin: 1em auto;
+}
+
+.featureContainer {
+    padding-bottom:5em;
+}
+
+.feature {
+    margin-top: 2em;
+}
+
+@media(min-width:768px){
+    .featureContainer {
+        display: flex;
+        justify-content: space-between;
+    }
+    .feature {
+        width: 30%;
+    }
 }

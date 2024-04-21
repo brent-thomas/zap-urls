@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import './App.css'
 import Nav from './components/nav/Nav'
 import Home from './pages/Home/Home';
+import Footer from './components/footer/footer';
+import About from './pages/about/About';
 
 function App() {
 
@@ -12,8 +14,10 @@ function App() {
       <div className='pd-hz pd-vt ht-100vh'>
         <Routes>
           <Route path="/" element={<Home/>} />
+          <Route path="/about" element={<About/>}/>
         </Routes>
       </div>
+      <Footer/>
     </Router>   
   )
 }

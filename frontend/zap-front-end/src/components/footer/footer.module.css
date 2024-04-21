@@ -1,0 +1,13 @@
+.container {
+    background: #eee;
+    border: solid 1px #ccc;
+    padding:100px;
+    text-align: left;
+}
+
+.container a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    margin: 5px auto;
+}

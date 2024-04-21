@@ -1,14 +1,24 @@
-.container {
+.flex{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.container a {
+.flex a {
     display: block;
     text-decoration: none;
     color: #000;
+    margin-right: 20px;
 }
 
 .logo {
-    max-width: 250px;
+    max-width: 150px;
+    margin-right: 50px;
 }
+
+/* .flex .donate_button {
+    background: blue;
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: #fff;
+    box-shadow: 2px 3px 14px #ccc;
+} */
