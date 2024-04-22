@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faCopy, faBoltLightning} from '@fortawesome/free-solid-svg-icons'
+import {faCopy, faCheck} from '@fortawesome/free-solid-svg-icons'
 const CopyButton = ({ url }) => {
     const [buttonText, setButtonText] = useState('Copy URL');
     const copyToClipboard = () => {
@@ -23,7 +23,7 @@ const CopyButton = ({ url }) => {
     style={buttonText === 'Copied!' ? {background:'#E0AC1E', fontWeight:'bold'} : null}
 
     >
-        <FontAwesomeIcon icon={faCopy}/> {buttonText}
+        <FontAwesomeIcon icon={buttonText === 'Copied!' ? faCheck : faCopy}/>  {buttonText}
     </button>
   );
 };

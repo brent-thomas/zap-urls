@@ -5,6 +5,7 @@
     border: solid 1px #ccc;
     margin: 10px 0px;
     outline: none;
+    font-size: 16px;
 }
 
 .error {
@@ -16,6 +17,11 @@
 
 .longURL {
     width: 100%;
+}
+
+.zapURL {
+    margin: 1em auto;
+    display: block;
 }
 
 .alias {
@@ -78,6 +84,10 @@
 
 .feature {
     margin-top: 2em;
+}
+
+.github {
+    color: #9121a2;
 }
 
 @media(min-width:768px){

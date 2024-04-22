@@ -57,12 +57,18 @@ const Home = () => {
                     body: JSON.stringify(data)
                 })
                 const responseData = await response.json();
+                if(responseData.error) {
+                    seterrors([responseData.error])
+                    throw new Error('Network response was not ok');
+                }
                 setzapURL(responseData.zapURL)
                 setLongURL('')
                 setAlias('')
                 }
         } catch(err) {
-            seterrors(['There appears to be an issue with our server. Please try again in a few moments.'])
+            if(errors.length === 0){
+                seterrors(['There appears to be an issue with our server. Please try again in a few moments.'])
+            }
             console.log(err)
         }
         setLoading(false)
@@ -79,7 +85,8 @@ const Home = () => {
                 :
                 zapURL  && !loading ?
                 <div>
-                    <Link target="_blank" to={zapURL}>{zapURL}</Link>
+                    <p className={styles.header}>Success! Your ZapURL:</p>
+                    <Link className={styles.zapURL} target="_blank" to={zapURL}>{zapURL}</Link>
                     <div>
                         <CopyButton url={zapURL}/>
                         <button id={styles.generateNewURL} onClick={()=>{
@@ -166,8 +173,14 @@ const Home = () => {
                     </p>
                     </div>
                     <div className={styles.feature}>
-
+                        <h3>Open Source</h3>
+                        <p>
+                            ZapURLs is fully open-source, inviting developers worldwide to contribute and
+                            improve our services. Engage with us on <Link target="_blank" to="https://github.com/brent-thomas/zap-urls" className={styles.github}>GitHub</Link> to 
+                            enhance URL shortening for everyone.
+                            </p>
                     </div>
+
                 </div>
 
             </div>

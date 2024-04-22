@@ -31,6 +31,39 @@ const About = () => {
         </p>
 
         <p>Welcome to a cleaner, more efficient way to shorten URLs. Welcome to ZapURLs.com.</p>
+
+        <h2>When ZapURLs Might Not Be the Best Fit</h2>
+        <p>
+          While ZapURLs.com is perfect for many use cases, it's important to recognize scenarios where it might
+          not meet specific needs:
+        </p>
+
+        <h4>Large Commercial Projects:</h4>
+        <p>
+        For businesses or projects that require heavy-duty URL shortening capabilities, including extensive tracking 
+        analytics, and branded domains, ZapURLs might not be the best fit. Our service is designed for simplicity and ease of use, 
+        without complex analytics or enterprise-grade features.
+        </p>
+
+        <h4>Link Tracking and Data Analytics:</h4>
+        <p>
+        If you need detailed insights into click-through rates, geographic data, or other analytical metrics, 
+        ZapURLs currently does not support these features. Our focus is on providing straightforward URL 
+        shortening without the complications of extensive tracking.
+        </p>
+
+        <h4>High Volume Needs:</h4>
+        <p>
+        ZapURLs is rate-limited to 50 URLs per 15 minutes to ensure quality service for all users. 
+        For applications that require higher volumes of URL shortening within short periods, this limit may prove 
+        restrictive.
+        </p>
+
+        <p>
+        We encourage users who require these features to consider other URL shortening services that specialize in these areas.
+        ZapURLs is ideal for individuals, small businesses, and projects that benefit from simple, no-cost URL shortening for 
+        easier sharing and handling.
+        </p>
     </div>
   )
 }

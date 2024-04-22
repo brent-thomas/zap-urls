@@ -1,6 +1,7 @@
 require('dotenv').config();
 const Joi = require('joi');
 const xss = require('xss');
+const serverless = require('serverless-http');
 const schema = Joi.object({
     alias: Joi.string().alphanum().max(10).required(),
     longURL: Joi.string().uri().required()
@@ -41,7 +42,8 @@ app.post('/generateurl', async (req,res) =>{
     const { error } = schema.validate({alias,longURL});
     if (error) {
         console.log('schema validate error')
-        return res.status(400).json({ error: error.details[0].message });
+        console.log(error)
+        return res.status(400).json({ error: 'Please provide a valid URL that includes HTTP:// or HTTPS://' });
     }
     try {
       const zapURL = await putItem(alias,longURL)
@@ -52,6 +54,4 @@ app.post('/generateurl', async (req,res) =>{
     }
 })
 
-app.listen(port, ()=> {
-    console.log(`Server is running on port ${port}`)
-})
+module.exports.handler = serverless(app);
