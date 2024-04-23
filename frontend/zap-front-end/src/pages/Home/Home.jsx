@@ -12,7 +12,7 @@ const Home = () => {
     const [longURL, setLongURL] = useState('');
     const [zapURL, setzapURL] = useState('')
     const [loading, setLoading] = useState(false);
-    const url = "http://localhost:3000/generateurl"
+    const url = import.meta.env.VITE_API_URL;
 
 
     const validate = () => {

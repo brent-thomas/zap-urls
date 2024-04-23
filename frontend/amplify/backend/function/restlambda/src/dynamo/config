@@ -1,0 +1,75 @@
+const { v4: uuidv4 } = require('uuid');
+const { DynamoDBClient, PutItemCommand, GetItemCommand } = require('@aws-sdk/client-dynamodb');
+const client = new DynamoDBClient({})
+
+const generateRandomString = () => {
+    const lowercaseAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    let string = ''
+    for(let i = 0; i<6; i++){
+        
+        if(i % 2 === 0){
+            let int = Math.ceil(Math.random() * 25)
+            let alphabetCase = Math.ceil(Math.random() * 2)
+            string+=lowercaseAlphabet[int]
+        } else {
+            let int = Math.ceil(Math.random() * 9).toString()
+            string+= int
+        }  
+    }
+    return string
+}
+
+
+const putItem = async (alias, longURL) => {
+  const urlString = generateRandomString() 
+  const zapURL = `https://zapurls.com/r/${alias}/${urlString}`
+  const id = uuidv4(); // Generate a new UUID
+  const params = {
+    TableName: 'Zappies',
+    Item: {
+      id: { S: id }, // Use the UUID as the 'id' attribute
+      alias: { S: alias },
+      longURL: { S: longURL },
+      urlString: {S:urlString},
+      zapURL: {S:zapURL},
+      timestamp: { N: `${Date.now()}` },
+      clickCount: { N: '0' },
+    }
+  };
+
+  try {
+    const data = await client.send(new PutItemCommand(params));
+    console.log("Item added:", data);
+    console.log(zapURL)
+    return zapURL
+  } catch (err) {
+    console.error("Error:", err);
+  }
+};
+
+
+async function getURL(alias,urlString) {
+  const params = {
+    TableName: 'Zappies',
+    Key: {
+      alias: {S: alias},
+      urlString: {S:urlString}
+    }
+  }
+
+  try {
+    const {Item} = await client.send(new GetItemCommand(params))
+    return Item
+  } catch(err){
+      console.log("Error fetching URL", err)
+      return null
+  }
+}
+
+
+module.exports = {
+  putItem,
+  getURL
+}
+
+

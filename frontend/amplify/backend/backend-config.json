@@ -1,0 +1,43 @@
+{
+  "api": {
+    "rest": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "restlambda"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "restlambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_restlambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "restlambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_restlambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "restlambda"
+        }
+      ]
+    }
+  }
+}

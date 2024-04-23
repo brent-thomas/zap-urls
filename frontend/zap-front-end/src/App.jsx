@@ -5,6 +5,7 @@ import Nav from './components/nav/Nav'
 import Home from './pages/Home/Home';
 import Footer from './components/footer/footer';
 import About from './pages/about/About';
+import Redirect from './components/redirect/Redirect';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/about" element={<About/>}/>
+          <Route path="/:alias/:urlstring" element={<Redirect/>} />
         </Routes>
       </div>
       <Footer/>
