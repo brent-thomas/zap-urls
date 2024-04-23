@@ -47,7 +47,7 @@ const Home = () => {
                     alias,
                     longURL 
                 }
-                const response = await fetch(url, {
+                const response = await fetch(`${url}/api/generateurl`, {
                     method: 'POST',
                     mode: 'cors',
                     cache: 'no-cache',
