@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../../assets/zap_logo.png'
+import logo from '../../assets/logo.png'
 import { Link, useMatch } from 'react-router-dom';
 import styles from './nav.module.css'
 
