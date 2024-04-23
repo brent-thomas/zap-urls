@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-
+import {Helmet} from "react-helmet";
 const Privacy = () => {
 
     useEffect(()=>{
@@ -7,6 +7,10 @@ const Privacy = () => {
     })
   return (
     <div style={{maxWidth:'700px', margin:'2em auto',}}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>ZAPURLS.com Privacy Statement</title>
+        </Helmet>
         <h3>Privacy Statement:</h3>
         <p>
             At ZapURLs.com, we take your privacy seriously. We collect minimal personal information

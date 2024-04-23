@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCopy, faBoltLightning} from '@fortawesome/free-solid-svg-icons'
 import Loader from "../../components/loader/Loader";
 import CopyButton from "../../components/copybutton/CopyButton";
+import {Helmet} from "react-helmet";
 const Home = () => {
     const [alias, setAlias] = useState('');
     const [errors,seterrors] = useState([])
@@ -77,6 +78,11 @@ const Home = () => {
    
     return(
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Free URL Shortening Service</title>
+            </Helmet>
+
             <div>
               
                 <div className={styles.form}>

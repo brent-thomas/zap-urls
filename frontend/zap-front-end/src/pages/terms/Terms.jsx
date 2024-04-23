@@ -1,11 +1,15 @@
 import React, {useEffect} from 'react'
-
+import {Helmet} from "react-helmet";
 const Terms = () => {
     useEffect(()=>{
         window.scrollTo(0,0)
     })
   return (
     <div style={{maxWidth:'700px', margin:'2em auto',}}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>ZAPURLS.com Terms Of Use</title>
+        </Helmet>
         <h3>Terms Of Use</h3>
         <p>
         Welcome to ZapURLs.com! By accessing or using our services, you agree to abide by these 

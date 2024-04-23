@@ -1,8 +1,13 @@
 import React from 'react'
 import styles from './about.module.css'
+import {Helmet} from "react-helmet";
 const About = () => {
   return (
     <div className={styles.container}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>About ZAPURLS.com</title>
+        </Helmet>
         <h2>Who are we? </h2>
         <p>
         ZapURLs.com provides a streamlined URL shortening service, turning unwieldy web addresses into short, friendly links
