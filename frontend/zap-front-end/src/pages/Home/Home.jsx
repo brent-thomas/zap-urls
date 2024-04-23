@@ -136,6 +136,7 @@ const Home = () => {
                             ZAP <FontAwesomeIcon icon={faBoltLightning}/>
 
                             </button>
+                            <p className={styles.disclaimer}>By clicking "ZAP", you agree to our <Link to="/terms">terms of use</Link> and <Link to="/privacy">privacy statement</Link></p>
                     </form>
                 }
                     <div>

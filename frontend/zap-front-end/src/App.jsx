@@ -5,7 +5,8 @@ import Nav from './components/nav/Nav'
 import Home from './pages/Home/Home';
 import Footer from './components/footer/footer';
 import About from './pages/about/About';
-import Redirect from './components/redirect/Redirect';
+import Privacy from './pages/privacy/Privacy';
+import Terms from './pages/terms/Terms';
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/about" element={<About/>}/>
-          <Route path="/:alias/:urlstring" element={<Redirect/>} />
+          <Route path="/privacy" element={<Privacy/>}/>
+          <Route path="/terms" element={<Terms/>} />
         </Routes>
       </div>
       <Footer/>

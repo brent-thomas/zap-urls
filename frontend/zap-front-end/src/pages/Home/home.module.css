@@ -56,8 +56,8 @@
 }
 
 #submit {
-    float: right;
     background-color: #E0AC1E;
+    margin-left: 70%;
     color: #000;
     font-weight: bold;
     width: 30%;
@@ -88,6 +88,14 @@
 
 .github {
     color: #9121a2;
+}
+
+.disclaimer {
+    font-size: 14px;
+}
+
+.disclaimer a {
+    color: #2d4bd3;
 }
 
 @media(min-width:768px){
