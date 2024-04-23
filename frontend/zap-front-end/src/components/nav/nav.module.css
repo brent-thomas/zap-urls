@@ -15,6 +15,12 @@
     margin-right: 50px;
 }
 
+@media(min-width:768px){
+    .logo {
+        max-width: 200px;
+    }
+}
+
 /* .flex .donate_button {
     background: blue;
     padding: 10px 30px;
