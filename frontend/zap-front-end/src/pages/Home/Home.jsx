@@ -23,8 +23,8 @@ const Home = () => {
         if(!alias) {
             errorsArr.push('An alias is required')
         } 
-        else if(alias.length >10) {
-            errorsArr.push('Alias must be 10 characters or less.')
+        else if(alias.length > 20) {
+            errorsArr.push('Alias must be 20 characters or less.')
         }
         //check for url errors
         if(!isURL(longURL)) {
@@ -135,7 +135,7 @@ const Home = () => {
                                 value={alias} 
                                 onChange={e => setAlias(e.target.value)} 
                                 className={styles.alias}
-                                maxLength={15}
+                                maxLength={20}
                             />
                         </div>
                         <button type="button" id={styles.submit} onClick={()=>{handleSubmit(alias, longURL)}}>

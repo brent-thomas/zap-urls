@@ -18,7 +18,7 @@ app.use(function(req, res, next) {
 
 //joi schema
 const schema = Joi.object({
-  alias: Joi.string().alphanum().max(10).required(),
+  alias: Joi.string().alphanum().max(20).required(),
   longURL: Joi.string().uri().required()
 });
 
