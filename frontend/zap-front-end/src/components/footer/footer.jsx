@@ -8,7 +8,6 @@ const Footer = () => {
       <Link to="/privacy">Privacy</Link>
       <Link to="/terms">Terms of Use</Link> 
       <Link target="_blank" to="https://ko-fi.com/zapurls">Donate</Link>
-      <Link target="_blank" to="https://github.com/brent-thomas/zap-urls">Developers</Link>
      
     </div>
 )}

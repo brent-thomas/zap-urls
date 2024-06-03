@@ -15,7 +15,7 @@
       "function": {
         "restlambda": {
           "deploymentBucketName": "amplify-amplifybe9c01874efb4-staging-d64f1-deployment",
-          "s3Key": "amplify-builds/restlambda-7639386d6773665a6c75-build.zip"
+          "s3Key": "amplify-builds/restlambda-58476b75374c44334a31-build.zip"
         }
       },
       "api": {

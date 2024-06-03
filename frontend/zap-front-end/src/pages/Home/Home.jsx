@@ -179,14 +179,7 @@ const Home = () => {
                         on providing you with a reliable and efficient service.
                     </p>
                     </div>
-                    <div className={styles.feature}>
-                        <h3>Open Source</h3>
-                        <p>
-                            ZapURLs is fully open-source, inviting developers worldwide to contribute and
-                            improve our services. Engage with us on <Link target="_blank" to="https://github.com/brent-thomas/zap-urls" className={styles.github}>GitHub</Link> to 
-                            enhance URL shortening for everyone.
-                            </p>
-                    </div>
+                 
 
                 </div>
 
